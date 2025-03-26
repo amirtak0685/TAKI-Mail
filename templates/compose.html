@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}
+   Compose
+{% endblock %}
+{% block main %}
+   <form action = "/compose" method = "post">
+    <div class = "mb-3">
+        <label>From:</label>
+        <input autocomplete = "off" class = "form-control mx-auto w-auto" id = "username" name = "sender" type = "email" value = "{{ sender }}" placeholder = "Sender">
+    </div>
+    <div class = "mb-3">
+        <label>To:</label>
+        <input autofocus class = "form-control mx-auto w-auto" id = "recipient" name = "recipient" type = "email" placeholder = "Recipient">
+    </div>
+    <div class = "mb-3">
+        <label>Subject</label>
+        <input class = "form-control mx-auto w-auto" id = "subject" name = "subject" type = "text" placeholder = "Subject">
+    </div>
+    <div class = "mb-3">
+        <textarea name = "body"></textarea>
+    </div>
+    <div class = "mb-3">
+        <input class = "form-control mx-auto w-auto" id = "file" name = "file" type = "file" placeholder = "file">
+    </div>
+    <button class = "btn btn-primary" type = 'submit'>Send</button>
+   </form>
+{% endblock %}

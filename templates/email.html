@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Email
+{% endblock %}
+
+{% block main %}
+    <div class = "center-div">
+        <div class = "list-group-item view-email">
+            <h10><strong>Sender: </strong> {{ emailDetail.sender }}</h10>
+        </div>
+        <div class = "list-group-item view-email">
+            <h10><strong>To: </strong> {{ emailDetail.recipient }}</h10>
+        </div>
+        <div class = "list-group-item view-email">
+            <h10><strong>Subject: </strong> {{ emailDetail.subject }}</h10>
+        </div>
+        <div class = "list-group-item view-email">
+           <h10><strong>Timestamp: </strong> {{ emailDetail.timestamp }}</h10>
+        </div>
+        <div class = "list-group-item view-email">
+            <h10><strong>Body: </strong> {{ emailDetail.body }}</h10>
+        </div>
+        <div class = "list-group-item view-email">
+            <h10><strong>Files: </strong> {{ emailDetail.file }}</h10>
+        </div>
+    </div>
+    <div class = "my-3">
+        <form action = "reply" method = "post">
+            <input type = "hidden" name = "emailId" value = "{{ emailDetail.id}}">
+            <input type = "submit" class = "btn btn-success" value = "Reply">
+        </form>
+    </div>
+{% endblock %}

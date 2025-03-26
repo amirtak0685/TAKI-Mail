@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}
+   Reply
+{% endblock %}
+{% block main %}
+   <div>
+    {% for emailDetail in emailDetails %}
+      <form action = "/compose" method = "post">
+        <div class = "mb-3">
+            <label>From:</label>
+            <input autocomplete = "off" class = "form-control mx-auto w-auto" id = "username" name = "sender" type = "email" value = "{{ emailDetail.recipient }}">
+        </div>
+        <div class = "mb-3">
+            <label>To:</label>
+            <input class = "form-control mx-auto w-auto" id = "recipient" name = "recipient" type = "email" value = "{{ emailDetail.sender }}">
+        </div>
+        <div class = "mb-3">
+            <label>Subject</label>
+            <input class = "form-control mx-auto w-auto" id = "subject" name = "subject" type = "text" value = "Re: {{ emailDetail.subject}}">
+        </div>
+        <div class = "mb-3">
+            <textarea autofocus name = "body"></textarea>
+        </div>
+        <div>
+          <input type = "file" class = "form-control mx-auto w-auto">
+        </div><br>
+        <button class = "btn btn-primary" type = "submit">Reply</button>
+      </form>
+    {% endfor %}
+   </div>
+{% endblock %}
